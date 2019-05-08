@@ -7,6 +7,8 @@ def operant(ope, x, y)
   when 2
     return (x * y)
   when 3
+    return 1000 if y == 0
+
     return (x / y)
   end
 
@@ -48,7 +50,7 @@ def calc3(frac, o1, o2, o3)
   return 1000 if tmpfrac.denominator == 0
   tmpint = tmpfrac.to_f
   if tmpint == 10
-    print "((#{frac[0].numerator}#{r_ope(o1)}#{frac[1].numerator})#{r_ope(o2)}#{frac[2].numerator})#{r_ope(o3)}#{frac[3].numerator}\n"
+    print "#{frac[3].numerator}#{r_ope(o3)}(#{frac[2].numerator}#{r_ope(o2)}(#{frac[0].numerator}#{r_ope(o1)}#{frac[1].numerator}))\n"
   end
 end
 
@@ -57,7 +59,7 @@ def calc4(frac, o1, o2, o3)
   return 1000 if tmpfrac.denominator == 0 
   tmpint = tmpfrac.to_f
   if tmpint == 10
-    print "((#{frac[0].numerator}#{r_ope(o1)}#{frac[1].numerator})#{r_ope(o2)}#{frac[2].numerator})#{r_ope(o3)}#{frac[3].numerator}\n"
+    print "(#{frac[0].numerator}#{r_ope(o1)}#{frac[1].numerator})#{r_ope(o3)}(#{frac[2].numerator}#{r_ope(o2)}#{frac[3].numerator})\n"
   end
 end
 
@@ -66,6 +68,9 @@ def ope_parm(frac)
     4.times do |o2|
       4.times do |o3|
         calc1(frac, o1, o2, o3)
+        calc2(frac, o1, o2, o3)
+        calc3(frac, o1, o2, o3)
+        calc4(frac, o1, o2, o3)
       end
     end
   end
